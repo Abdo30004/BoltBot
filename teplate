@@ -1,0 +1,18 @@
+const { Message, Client } = require("whatsapp-web.js");
+
+module.exports = {
+  name: "command",
+  aliases: ["cmd"],
+  groupeOnly: false,
+  adminOnly: false,
+  description: "",
+  usage: "",
+  /**
+   *
+   * @param {Client} client
+   * @param {Message} message
+   * @param {Array} args
+   * @returns
+   */
+  run: async (client, message, args) => {},
+};
