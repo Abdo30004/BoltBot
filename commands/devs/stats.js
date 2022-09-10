@@ -2,7 +2,7 @@
 const { Message, Client } = require("whatsapp-web.js");
 const os = require("os");
 const pms = require("pretty-ms");
-os.
+
 module.exports = {
   name: "stats",
   aliases: ["status"],
