@@ -5,7 +5,7 @@ module.exports = {
   aliases: ["m", "everyone", "منشن"],
   groupeOnly: true,
   description: "Mention Everyone",
-  adminOnly: false,
+  adminOnly: true,
   /**
    *
    * @param {Client} client
