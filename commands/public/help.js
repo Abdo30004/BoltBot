@@ -45,7 +45,7 @@ module.exports = {
       })
       .join(
         "\n"
-      )}\n\n*Note:* You can use \`/help [command]\` to get info about a command\n\nBe the first to know about Bolt Bot news 📣: https://chat.whatsapp.com/GXOAsDgcSFvGsWfzdph62k`;
+      )}\n\n*Note:* You can use \`/help [command]\` to get info about a command\n\nBe the first to know about Bolt Bot news 📣: ${client?.config?.invite}`;
     await message.react("⚡");
     await message.reply(string);
   },

@@ -22,10 +22,11 @@ module.exports = async (client, call) => {
 
     chat.sendMessage(
       `*Calling this number is not allowed, you has been blocked automatically if you didn't do it on purpose contact us :*\n\n*Devs:* ${devs
-        .map((d) => d.split("@")[0])
+        .map((d) => `+${d.split("@")[0]}`)
         .join(
           ", "
-        )}\n\n*Support Server Link:* https://chat.whatsapp.com/DPoaI7tS2WT3G1ZG5v2fJP`
+
+        )}\n\n*Support Server Link:* ${client?.config?.invite}`
     );
     const calltime = moment(new Date()).format("MM-DD-YYYY LTS");
     await caller.block();

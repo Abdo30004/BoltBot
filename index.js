@@ -3,6 +3,7 @@ const fs = require("fs");
 const { Client, LocalAuth } = require("whatsapp-web.js");
 const { Collection } = require("@discordjs/collection");
 const message = require("./events/message_create/message");
+const config=require("./config.js")
 const client = new Client({
   authStrategy: new LocalAuth(),
 
@@ -13,7 +14,7 @@ const client = new Client({
   },
   
 });
-
+client.config=config
 client.commands = new Collection();
 String.prototype.title = function () {
   return this.replace(/\w\S*/g, function (txt) {
