@@ -24,6 +24,8 @@ String.prototype.title = function () {
 process.on("unhandledRejection", (reason, p) => {
   console.log("Unhandled Rejection at: Promise", p, "reason:", reason);
 })
+
+
 try {
   let events = fs.readdirSync("./events/");
   for (const event of events) {

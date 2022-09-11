@@ -9,7 +9,7 @@ module.exports = {
   aliases: ["status"],
   groupeOnly: false,
   adminOnly: false,
-  description: "",
+  description: "bot stats",
   usage: "",
   /**
    *

@@ -6,7 +6,7 @@ module.exports = {
   groupeOnly: false,
   adminOnly: false,
   description: "unblock users",
-  usage: "",
+  usage: "[Menion]",
   /**
    *
    * @param {Client} client
