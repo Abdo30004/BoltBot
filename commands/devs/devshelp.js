@@ -19,7 +19,7 @@ module.exports = {
       client.commands.find(
         (c) => c.aliases && !c.aliases.includes("") && c.aliases.includes(cmd)
       );
-    if (command) {
+    if (command && command.category == "devs") {
       const string = `*Command:* /${command.name}\n\n*Description:* ${
         command.description || "No description"
       }\n\n*Category:* ${command.category}\n\n*Shortcuts:* ${
