@@ -1,4 +1,5 @@
 /node_modules
 /.wwebjs_auth
 /youtube
-assets/quran
+assets/quran/*
+assets/tts/*
