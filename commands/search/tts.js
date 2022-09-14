@@ -12,7 +12,7 @@ module.exports = {
   aliases: ["text-to-speech", "speak", "talk"],
   groupeOnly: false,
   adminOnly: false,
-  description: "text to speech",
+  description: "text to speech support (ar, en, fr, de, it, es, pt, ru,tr)",
   usage: "[text]",
   /**
    *
