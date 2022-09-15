@@ -1,7 +1,7 @@
 //template file
 const { Message, Client, MessageMedia } = require("whatsapp-web.js");
 const axios = require("axios");
-const download = require("download");
+const fs = require("fs");
 axios.defaults.headers = {
   "Cache-Control": "no-cache",
   Pragma: "no-cache",
@@ -49,7 +49,8 @@ module.exports = {
         unsafeMime: true,
         filename: "tts.mp3",
       });
-      if (media.filesize < 1000) {
+      fs.unlinkSync("C:\\Users\\tt4k\\Desktop\\BoltBot\\assets\\tts\\audio.mp3");
+      if (media.filesize < 50) {
         await message.react("❌");
         await message.reply(
           "Can't Convert Text To Speech,maybe the text language is not supported"
