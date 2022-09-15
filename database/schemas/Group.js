@@ -6,3 +6,5 @@ const GroupSchema = new Schema({
     createdAt:{required:true,type:Date},
     owner:{required:true,type:String},
 })
+const Group = model('Group',GroupSchema);
+module.exports = Group;
