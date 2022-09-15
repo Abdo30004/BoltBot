@@ -1,8 +1,6 @@
-const qrcode = require("qrcode-terminal");
 const fs = require("fs");
 const { Client, LocalAuth } = require("whatsapp-web.js");
 const { Collection } = require("@discordjs/collection");
-const message = require("./events/message_create/message");
 const config=require("./config.js")
 const client = new Client({
   authStrategy: new LocalAuth(),
@@ -73,8 +71,6 @@ try {
   Stack:${err.stack}  
   `);
 }
-client.on("qr", (qr) => {
-  qrcode.generate(qr, { small: true });
-});
+
 
 client.initialize();
