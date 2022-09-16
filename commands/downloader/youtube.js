@@ -47,6 +47,7 @@ module.exports = {
       await message.reply("Video is too long");
       return;
     }
+    
     else if (data.info.sizes[isAudio?"audio":"video"] > 75) {
       await message.react("❌");
         await message.reply("Can't send video more than 100MB (WhatsApp limitation)");
