@@ -6,7 +6,6 @@ axios.defaults.headers = {
   Pragma: "no-cache",
   Expires: "0",
 };
-moment().utcOffset(4).format("");
 function to_km_per_h(speed) {
   const turned = speed * 3.6;
   return Math.round((turned + Number.EPSILON) * 100) / 100;

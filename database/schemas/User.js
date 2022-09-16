@@ -4,7 +4,12 @@ const UserSchema = new Schema({
     number:{required:true,type:String},
     name:{required:true,type:String},
     country:{required:true,type:String},
-    blocked:{required:true,type:Boolean},   
+    block:{
+        ban:{type:Boolean,default:false},
+        reason:{type:String,default:"none"},
+        time:{type:Date,default:Date.now}
+        
+    },   
     business:{required:true,type:Boolean},
 })
 const User = model('User',UserSchema);

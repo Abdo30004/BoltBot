@@ -8,6 +8,5 @@ const { test } = require("../../config.js");
  * @returns
  */
 module.exports = async (client) => {
-  console.log("Bolt Bot is ready to support !!");
-  client.sendMessage(test, "*Bolt Bot* ⚡ Started 🟢");
+
 };
