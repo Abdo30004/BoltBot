@@ -41,6 +41,10 @@ module.exports = async (client, message) => {
   if (command.category == "devs" && !devs.includes(author.id._serialized)) {
     return;
   }
+  if(command.test){
+    await message.reply("*This command is in maintenance 🛠*");
+    return
+  }
   if (command.groupeOnly && !chat.isGroup) {
     await message.reply("This is a group command 💬");
     await message.react("💬");

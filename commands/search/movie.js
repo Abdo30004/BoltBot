@@ -39,14 +39,14 @@ module.exports = {
         `C:\\Users\\tt4k\\Desktop\\BoltBot\\assets\\Images\\not-found.png`
       );
     }
+    const Runtime =data.Runtime!="N/A"?ms(data.Runtime):ms("1 min");
     const info = `*${data.Title}*\n\n*Year:* ${data.Year}\n\n*Type:* ${
       data.Type
-    }\n\n*${data.Type === "movie" ? "Movie" : "Episode"} Duration:* ${pms(
-      ms(!isNaN(data.Runtime)?data.Runtime:1),
-      { verbose: true }
-    )}\n\n*Categories:* ${data.Genre}\n\n*Story:* ${data.Plot}\n\n*IMDB:* ${
-      data.imdbRating
-    }/10`;
+    }\n\n*${
+      data.Type === "movie" ? "Movie" : "Episode"
+    } Duration:* ${ pms(Runtime,{verbose:true})}\n\n*Categories:* ${data.Genre}\n\n*Story:* ${
+      data.Plot
+    }\n\n*IMDB:* ${data.imdbRating}/10`;
     {
       await message.react("🎬");
       await message.reply(info, null, { media: poster, unsafeMime: true });
