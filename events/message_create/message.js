@@ -41,7 +41,7 @@ module.exports = async (client, message) => {
   if (command.category == "devs" && !devs.includes(author.id._serialized)) {
     return;
   }
-  if(command.test){
+  if(command.test && !devs.includes(author.id._serialized)){
     await message.reply("*This command is in maintenance 🛠*");
     return
   }
