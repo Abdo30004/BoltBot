@@ -33,23 +33,22 @@ module.exports = {
       await message.reply("Please Send Text Less Than 1000 Characters");
       return;
     }
-    /*
-    try {
-        var { data } = await axios.get(`http://127.0.0.1:5000/tts?text=${encodeURI(text)}`);
-        }
-        catch {
-            await message.react("❌");
-            await message.reply("Error");
-            return;
-            }
-        */
     const link = `http://127.0.0.1:5000/tts?text=${encodeURI(text)}`;
+
+    try {
+      var { data } = await axios.get(link);
+    } catch {
+      await message.react("❌");
+      await message.reply("Error");
+      return;
+    }
+
     try {
       const media = await MessageMedia.fromUrl(link, {
         unsafeMime: true,
         filename: "tts.mp3",
       });
-      await message.reply(media, null, { sendMediaAsDocument: true });
+      await message.reply(media, null, { sendMediaAsDocument: false });
     } catch (e) {
       console.log(e);
       await message.react("❌");
