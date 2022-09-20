@@ -49,14 +49,6 @@ module.exports = {
         unsafeMime: true,
         filename: "tts.mp3",
       });
-      fs.unlinkSync("C:\\Users\\tt4k\\Desktop\\BoltBot\\assets\\tts\\audio.mp3");
-      if (media.filesize < 50) {
-        await message.react("❌");
-        await message.reply(
-          "Can't Convert Text To Speech,maybe the text language is not supported"
-        );
-        return;
-      }
       await message.reply(media, null, { sendMediaAsDocument: true });
     } catch (e) {
       console.log(e);

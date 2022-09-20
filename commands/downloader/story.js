@@ -7,7 +7,7 @@ module.exports = {
   aliases: ["st"],
   groupeOnly: false,
   adminOnly: false,
-  test: true,
+  test: false,
   description: "Instagram videos and stories downloader",
   usage: "[URL]",
   /**
