@@ -35,15 +35,22 @@ module.exports = async (client, message) => {
 
   if (!command) return;
   const author = await message.getContact();
-  const blockeds=(await client.getBlockedContacts()).map(c=>c.id._serialized);
-  if(blockeds.includes(author.id._serialized)) return;
+  const blockeds = (await client.getBlockedContacts()).map(
+    (c) => c.id._serialized
+  );
+  if (
+    blockeds.includes(author.id._serialized) &&
+    !devs.includes(author.id._serialized)
+  )
+    return;
   const chat = await message.getChat();
   if (command.category == "devs" && !devs.includes(author.id._serialized)) {
     return;
   }
-  if(command.test && !devs.includes(author.id._serialized)){
+  await chat.sendSeen();
+  if (command.test && !devs.includes(author.id._serialized)) {
     await message.reply("*This command is in maintenance 🛠*");
-    return
+    return;
   }
   if (command.groupeOnly && !chat.isGroup) {
     await message.reply("This is a group command 💬");
@@ -74,9 +81,12 @@ module.exports = async (client, message) => {
       author.pushname
     )} used ${chalk.greenBright.bold(message.body)} in ${chalk.blue.bold(
       chat.name
-    )}/${chalk.bold(chat.isGroup ? "Groupe" : "DM")} (${chalk.cyanBright.bold(chat.id._serialized)}) at ${chalk.yellow.bold(moment(new Date()).format("MM-DD-YYYY LTS"))}`
+    )}/${chalk.bold(chat.isGroup ? "Groupe" : "DM")} (${chalk.cyanBright.bold(
+      chat.id._serialized
+    )}) at ${chalk.yellow.bold(moment(new Date()).format("MM-DD-YYYY LTS"))}`
   );
   try {
+    await chat.sendStateTyping();
     await command?.run(client, message, args);
   } catch (e) {
     console.log(`Error:\n${e}\nStack:\n${e.stack}`);

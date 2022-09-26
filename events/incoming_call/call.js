@@ -14,6 +14,7 @@ module.exports = async (client, call) => {
     return;
   }
   try {
+    
     const caller = await client.getContactById(call.from);
     if (devs.includes(caller.id._serialized)) {
       return;
